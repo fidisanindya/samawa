@@ -24,7 +24,8 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('me', [AuthController::class, 'me']);
 });
 
-Route::post('curriculum-vitae', [UserController::class, 'curriculumVitae']);
-Route::get('get-user/{id}', [UserController::class, 'getUserByGender']);
-Route::get('newest-user/{id}', [UserController::class, 'getNewUser']);
+Route::post('curriculum-vitae', [UserController::class, 'curriculumVitae'])->middleware('api');
+Route::post('biodata', [UserController::class, 'biodata'])->middleware('api');
+Route::get('get-user', [UserController::class, 'getUserByGender'])->middleware('api');
+Route::get('newest-user', [UserController::class, 'getNewUser'])->middleware('api');
 
